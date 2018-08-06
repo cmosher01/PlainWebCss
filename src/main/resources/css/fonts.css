@@ -26,8 +26,10 @@ order, downloading them as needed.
 
 
 
-First, we use the serif font "Garamond" from Adobe.
-It's a free font, it looks nice, and it's relatively ubiquitous.
+First, we use the serif font "Egenolff-Berner Garamond",
+version 0.016, by Georg Duffner ( http://www.georgduffner.at/ ).
+It's a free font, with old-style numbers, regular & italic styles, ligatures,
+lots of stylistic alternatives, etc.; altogether a great font.
 
 And we use Bigelow and Holmes's "Luxi Mono" https://ctan.org/tex-archive/fonts/LuxiMono/
 for monospaced characters (dates and <PRE></PRE>).
@@ -70,10 +72,18 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 /* MAIN FONT */
 @font-face {
-    font-family: adobe-garamond-pro;
+    font-family: eb-garamond;
     src:
-        url('https://mosher.mine.nu/font/garamond/Garamond.woff') format('woff'),
-        url('https://mosher.mine.nu/font/garamond/Garamond.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: eb-garamond;
+    src:
+        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Italic.woff') format('woff'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Italic.ttf') format('truetype');
+    font-style: italic;
 }
 
 
@@ -191,7 +201,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 body {
     font-family:
-        adobe-garamond-pro,
+        eb-garamond,
         freefont, code2000, code2001, code2002,
         abydos, aegean, symbola,
         tibetan,
@@ -201,9 +211,9 @@ body {
 
     font-weight: normal;
     font-style: normal;
-    text-rendering: geometricPrecision;
     font-kerning: normal;
-    font-feature-settings: "kern", "liga", "hlig", /*"dlig",*/ "onum";
+    font-feature-settings: "kern", "liga", "clig", "dlig";
+    text-rendering: optimizeLegibility;
 }
 
 pre {
