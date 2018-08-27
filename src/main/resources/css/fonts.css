@@ -139,6 +139,13 @@ which shows code points for a few of the yet still missing BMP glyphs.
         url('https://mosher.mine.nu/font/baybayin/Baybayin_Ber.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: tagbanwa;
+    src:
+        url('https://mosher.mine.nu/font/tagbanwa/tagbanwa.woff') format('woff'),
+        url('https://mosher.mine.nu/font/tagbanwa/tagbanwa.ttf') format('truetype');
+}
+
 
 
 /* ancient fonts (hieroglyphs, etc.) */
@@ -211,7 +218,7 @@ body {
         eb-garamond,
         freefont, code2000, code2001, code2002,
         abydos, aegean, symbola,
-        tibetan, baybayin,
+        tibetan, baybayin, tagbanwa,
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
