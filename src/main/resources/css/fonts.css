@@ -133,6 +133,13 @@ which shows code points for a few of the yet still missing BMP glyphs.
 }
 
 @font-face {
+    font-family: burmese;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: baybayin;
     src:
         url('https://mosher.mine.nu/font/baybayin/Baybayin_Ber.woff') format('woff'),
@@ -218,7 +225,7 @@ body {
         eb-garamond,
         freefont, code2000, code2001, code2002,
         abydos, aegean, symbola,
-        tibetan, baybayin, tagbanwa,
+        tibetan, burmese, baybayin, tagbanwa,
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
