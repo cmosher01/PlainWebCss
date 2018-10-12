@@ -14,10 +14,37 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
+
+
+
+
 The goal is to be able to meaningfully display as many characters as
-possible, in order to cover the various personal and place names that
-could appear in any GEDCOM file, from around the world, and back
-into history. In that same vein, we favor freely available fonts.
+possible, in order to cover any text that may ever need to be
+displayed, from around the world, and back into history. In that same
+vein, we favor *freely* available fonts.
+
+
+
+
+
+Add classes to an HTML element in order to utilize these font
+settings within that element:
+    class="fontFeatures unicodeWebFonts"
+       Use only web fonts (specified here) to display characters. This gives
+       the most consistent behavior across systems. Although, the end user is
+       will be unable to install fonts locally to render any
+       missing characters (see the next setting).
+    class="fontFeatures unicodeFonts"
+       Use web fonts (specified here) to display characters, but also include
+       local fonts within the set of fonts for display. This may (will) cause
+       inconsistent results across systems, but it gives the end user some
+       power to install their own font to display missing characters.
+    class="unicodeMono"
+       Use monospaced fonts. Also provides local font fallback. Not recommended
+       for general use.
+
+
 
 
 
@@ -46,12 +73,13 @@ desired character with a minimal of font downloads. Next we proceed to
 the rarer characters missing from the above fonts.
 
 These include the ancient fonts by George Douros http://users.teilar.gr/~g1951d/
-"Abydos," "Aegean," and "Symbola;" and "Tibetan" from Google's
+"Abydos," "Aegean," and "Symbola;" and some from Google's
 Noto set of fonts https://www.google.com/get/noto/
+
 If the need arises, more specialty fonts (from Noto or elsewhere) could be
 added here, as well.
 
-Next, try the default font names, which will check the fonts installed
+Next, (optionally) try the default font names, which will check the fonts installed
 on the end-user's local system. This will allow the user the ability to
 find and install their own font if they need a glyph that's missing.
 
@@ -227,7 +255,8 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-body {
+
+.unicodeFonts {
     font-family:
         eb-garamond,
         freefont, code2000, code2001, code2002,
@@ -236,7 +265,21 @@ body {
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
+}
 
+.unicodeWebFonts {
+    font-family:
+        eb-garamond,
+        freefont, code2000, code2001, code2002,
+        abydos, aegean, symbola,
+        tibetan, burmese, baybayin, tagbanwa, cuneiform,
+        unifont, unifont-smp, unifont-pua,
+        lastresort, silbmp;
+}
+
+
+
+.fontFeatures {
     font-weight: normal;
     font-style: normal;
     font-kerning: normal;
@@ -244,7 +287,15 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-pre {
-    font-family: luxi, monospace, /* minimal fallback set: */ sans-serif, unifont, unifont-smp;
+
+
+.unicodeMono {
+    font-family:
+        luxi, monospace,
+        sans-serif, unifont, unifont-smp;
+    font-weight: normal;
+    font-style: normal;
+    font-kerning: none;
     font-feature-settings: "tnum";
+    text-rendering: optimizeLegibility;
 }
