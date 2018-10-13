@@ -132,6 +132,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: freefont;
     src:
         url('https://mosher.mine.nu/font/freefont/FreeSerif.woff') format('woff');
+    unicode-range: U+0100-01FFFF;
 }
 
 @font-face {
