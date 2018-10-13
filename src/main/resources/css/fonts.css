@@ -230,7 +230,13 @@ which shows code points for a few of the yet still missing BMP glyphs.
     unicode-range: U+14400-1467F;
 }
 
-
+@font-face {
+    font-family: tangut;
+    src:
+        url('https://mosher.mine.nu/font/tangut/TangutYinchuan.woff') format('woff'),
+        url('https://mosher.mine.nu/font/tangut/TangutYinchuan.ttf') format('truetype');
+    unicode-range: U+17000-18AFF;
+}
 
 /* LAST RESORT fonts (bitmaps and missing) */
 @font-face {
@@ -277,7 +283,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family:
         eb-garamond,
         freefont, code2000, universalia, code2001, code2002,
-        abydos, aegean, symbola, anatolian,
+        abydos, aegean, symbola, anatolian, tangut,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
@@ -288,7 +294,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family:
         eb-garamond,
         freefont, code2000, universalia, code2001, code2002,
-        abydos, aegean, symbola, anatolian,
+        abydos, aegean, symbola, anatolian, tangut,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
