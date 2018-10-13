@@ -133,6 +133,14 @@ which shows code points for a few of the yet still missing BMP glyphs.
 }
 
 @font-face {
+    font-family: universalia;
+    src:
+        url('https://mosher.mine.nu/font/universalia/Universalia-4.0.woff') format('woff'),
+        url('https://mosher.mine.nu/font/universalia/Universalia-4.0.ttf') format('truetype');
+    unicode-range: U+10000-E01EF;
+}
+
+@font-face {
     font-family: code2000;
     src:
         url('https://mosher.mine.nu/font/code2000/code2000.woff') format('woff'),
@@ -260,7 +268,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeFonts {
     font-family:
         eb-garamond,
-        freefont, code2000, code2001, code2002,
+        freefont, code2000, universalia, code2001, code2002,
         abydos, aegean, symbola,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
         serif, sans-serif, monospace, cursive, fantasy,
@@ -271,7 +279,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeWebFonts {
     font-family:
         eb-garamond,
-        freefont, code2000, code2001, code2002,
+        freefont, code2000, universalia, code2001, code2002,
         abydos, aegean, symbola,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
         unifont, unifont-smp, unifont-pua,
