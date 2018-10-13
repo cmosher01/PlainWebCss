@@ -285,9 +285,9 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeFonts {
     font-family:
         eb-garamond,
-        freefont, code2000, universalia, code2001, code2002,
         abydos, aegean, symbola, anatolian, tangut,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
+        freefont, code2000, universalia, code2001, code2002,
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
@@ -296,9 +296,9 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeWebFonts {
     font-family:
         eb-garamond,
-        freefont, code2000, universalia, code2001, code2002,
         abydos, aegean, symbola, anatolian, tangut,
         tibetan, burmese, baybayin, tagbanwa, cuneiform,
+        freefont, code2000, universalia, code2001, code2002,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
 }
