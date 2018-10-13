@@ -218,22 +218,22 @@ which shows code points for a few of the yet still missing BMP glyphs.
 @font-face {
     font-family: unifont;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont-10.0.06.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont-10.0.06.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.ttf') format('truetype');
 }
 
 @font-face {
     font-family: unifont-smp;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont_upper-10.0.06.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont_upper-10.0.06.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.ttf') format('truetype');
 }
 
 @font-face {
     font-family: unifont-pua;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont_csur-10.0.06.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont_csur-10.0.06.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.ttf') format('truetype');
 }
 
 @font-face {
