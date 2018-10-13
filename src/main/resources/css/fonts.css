@@ -104,6 +104,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Regular.ttf') format('truetype');
+    unicode-range: U+0020-FFFF;
 }
 
 @font-face {
@@ -111,6 +112,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Italic.woff') format('woff'),
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Italic.ttf') format('truetype');
+    unicode-range: U+0020-FFFF;
     font-style: italic;
 }
 
