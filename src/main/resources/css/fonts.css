@@ -133,7 +133,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.woff') format('woff'),
         url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.ttf') format('truetype');
-    unicode-range: U+0100-01FFFF;
+    unicode-range: U+00A0, U+0100-01FFFF;
 }
 
 @font-face {
@@ -142,7 +142,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
         url('https://mosher.mine.nu/font/code2000/code2000.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2000.ttf') format('truetype');
     /* Code2000 font has incorrect PUA glyphs assigned to U+E700 through U+F8CF */
-    unicode-range: U+0100-E6FF, U+F8D0-10FFFF;
+    unicode-range: U+00A0, U+0100-E6FF, U+F8D0-10FFFF;
 }
 
 @font-face {
@@ -223,7 +223,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.woff') format('woff'),
         url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.ttf') format('truetype');
-    unicode-range: U+14400-1467F;
+    unicode-range: U+00A0, U+14400-1467F;
 }
 
 @font-face {
@@ -231,7 +231,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.woff') format('woff'),
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.ttf') format('truetype');
-    unicode-range: U+17000-18AFF;
+    unicode-range: U+00A0, U+17000-18AFF;
 }
 
 /* LAST RESORT fonts (bitmaps and missing) */
