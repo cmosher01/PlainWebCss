@@ -101,6 +101,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 /* MAIN FONT */
 @font-face {
     font-family: eb-garamond;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Regular.ttf') format('truetype');
@@ -109,6 +110,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: eb-garamond;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Italic.woff') format('woff'),
         url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Italic.ttf') format('truetype');
@@ -121,6 +123,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 /* MONOSPACED FONT for dates and PRE-formatted text */
 @font-face {
     font-family: luxi;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/luxi/Luxi.woff') format('woff');
 }
@@ -130,6 +133,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 /* UNICODE FONTS for most glyphs */
 @font-face {
     font-family: freefont;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.woff') format('woff'),
         url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.ttf') format('truetype');
@@ -138,6 +142,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: code2000;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/code2000/code2000.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2000.ttf') format('truetype');
@@ -147,6 +152,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: code2001;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/code2000/code2001.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2001.ttf') format('truetype');
@@ -154,13 +160,25 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: code2002;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/code2000/code2002.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2002.ttf') format('truetype');
 }
 
+
+@font-face {
+    font-family: quivira;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/quivira/quivira.woff') format('woff'),
+        url('https://mosher.mine.nu/font/quivira/quivira.ttf') format('truetype');
+}
+
+
 @font-face {
     font-family: tibetan;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/noto/NotoSansTibetan-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/noto/NotoSansTibetan-Regular.ttf') format('truetype');
@@ -168,37 +186,120 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: burmese;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.ttf') format('truetype');
 }
 
 @font-face {
+    font-family: taitham;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansTaiTham-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansTaiTham-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: newtailue;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansNewTaiLue-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansNewTaiLue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: balinese;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansBalinese-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansBalinese-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: batak;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansBatak-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansBatak-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: lepcha;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansLepcha-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansLepcha-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: olchiki;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansOlChiki-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansOlChiki-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: georgian;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansGeorgian-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansGeorgian-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sundanese;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansSundanese-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansSundanese-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sinhala;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansSinhala-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansSinhala-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: mandaic;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansMandaic-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansMandaic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: scheherazade;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/Scheherazade-2.100/web/Scheherazade-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/Scheherazade-2.100/Scheherazade-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: bamum;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/noto/NotoSansBamum-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/noto/NotoSansBamum-Regular.ttf') format('truetype');
+}
+
+/* ancient fonts (hieroglyphs, etc.) */
+@font-face {
     font-family: cuneiform;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/noto/NotoSansCuneiform-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/noto/NotoSansCuneiform-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: baybayin;
-    src:
-        url('https://mosher.mine.nu/font/baybayin/Baybayin_Ber.woff') format('woff'),
-        url('https://mosher.mine.nu/font/baybayin/Baybayin_Ber.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: tagbanwa;
-    src:
-        url('https://mosher.mine.nu/font/tagbanwa/tagbanwa.woff') format('woff'),
-        url('https://mosher.mine.nu/font/tagbanwa/tagbanwa.ttf') format('truetype');
-}
-
-
-
-/* ancient fonts (hieroglyphs, etc.) */
-@font-face {
     font-family: abydos;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/abydos/AbydosR_hint.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/abydos/AbydosR_hint.ttf') format('truetype');
@@ -206,6 +307,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: aegean;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/aegean/Aegean_hint.woff') format('woff'),
         url('https://mosher.mine.nu/font/aegean/Aegean_hint.ttf') format('truetype');
@@ -213,6 +315,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: symbola;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/symbola/Symbola_hint.woff') format('woff'),
         url('https://mosher.mine.nu/font/symbola/Symbola_hint.ttf') format('truetype');
@@ -220,6 +323,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: anatolian;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.woff') format('woff'),
         url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.ttf') format('truetype');
@@ -228,15 +332,26 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: tangut;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.woff') format('woff'),
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.ttf') format('truetype');
     unicode-range: U+00A0, U+17000-18AFF;
 }
 
+@font-face {
+    font-family: syriac;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/meltho/EstrangeloEdessa.woff') format('woff'),
+        url('https://mosher.mine.nu/font/meltho/EstrangeloEdessa.ttf') format('truetype');
+    unicode-range: U+00A0, U+0700-074F;
+}
+
 /* LAST RESORT fonts (bitmaps and missing) */
 @font-face {
     font-family: unifont;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.woff') format('woff'),
         url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.ttf') format('truetype');
@@ -244,6 +359,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: unifont-smp;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.woff') format('woff'),
         url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.ttf') format('truetype');
@@ -251,6 +367,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: unifont-pua;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.woff') format('woff'),
         url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.ttf') format('truetype');
@@ -258,6 +375,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: lastresort;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/lastresort/LastResort.woff') format('woff'),
         url('https://mosher.mine.nu/font/lastresort/LastResort.ttf') format('truetype');
@@ -265,6 +383,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 @font-face {
     font-family: silbmp;
+    font-display: swap;
     src:
         url('https://mosher.mine.nu/font/silbmp/UnicodeBMPFallback.woff') format('woff'),
         url('https://mosher.mine.nu/font/silbmp/UnicodeBMPFallback.ttf') format('truetype');
@@ -278,9 +397,11 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeFonts {
     font-family:
         eb-garamond,
-        abydos, aegean, symbola, anatolian, tangut,
-        tibetan, burmese, baybayin, tagbanwa, cuneiform,
-        freefont, code2000, code2001, code2002,
+        tibetan, burmese, taitham, newtailue, balinese, batak, lepcha, olchiki,
+        symbola, aegean,
+        georgian, sundanese, sinhala, mandaic, scheherazade, bamum,
+        syriac, abydos, anatolian, tangut, cuneiform,
+        freefont, code2000, code2001, code2002, quivira,
         serif, sans-serif, monospace, cursive, fantasy,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
@@ -289,9 +410,11 @@ which shows code points for a few of the yet still missing BMP glyphs.
 .unicodeWebFonts {
     font-family:
         eb-garamond,
-        abydos, aegean, symbola, anatolian, tangut,
-        tibetan, burmese, baybayin, tagbanwa, cuneiform,
-        freefont, code2000, code2001, code2002,
+        tibetan, burmese, taitham, newtailue, balinese, batak, lepcha, olchiki,
+        symbola, aegean,
+        georgian, sundanese, sinhala, mandaic, scheherazade, bamum,
+        syriac, abydos, anatolian, tangut, cuneiform,
+        freefont, code2000, code2001, code2002, quivira,
         unifont, unifont-smp, unifont-pua,
         lastresort, silbmp;
 }
@@ -316,5 +439,4 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-style: normal;
     font-kerning: none;
     font-feature-settings: "tnum";
-    text-rendering: optimizeLegibility;
 }
