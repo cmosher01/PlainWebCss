@@ -103,8 +103,10 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: eb-garamond;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Regular.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.woff') format('woff'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.ttf') format('truetype'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.otf') format('opentype');
     /* omit some block with partial coverage; exclude pilcrows */
     unicode-range: U+0020-00B5, U+00B7-204A, U+204C-218F, U+2460-27BF, U+2C60-FFFF;
 }
@@ -113,8 +115,10 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: eb-garamond;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/woff/EBGaramond12-Italic.woff') format('woff'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond-0.016/ttf/EBGaramond12-Italic.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.woff') format('woff'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.ttf') format('truetype'),
+        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.otf') format('opentype');
     unicode-range: U+0020-FFFF;
     font-style: italic;
 }
