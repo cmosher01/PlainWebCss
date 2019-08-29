@@ -21,8 +21,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 The goal is to be able to meaningfully display as many characters as
 possible, in order to cover any text that may ever need to be
-displayed, from around the world, and back into history. In that same
-vein, we favor *freely* available fonts.
+displayed, from around the world, and back into history. This is also
+the primary goal of Google's Noto Sans font project, so we make heavy
+use of that, supplimenting it where necessary.
 
 
 
@@ -31,18 +32,9 @@ vein, we favor *freely* available fonts.
 Add classes to an HTML element in order to utilize these font
 settings within that element:
     class="fontFeatures unicodeWebFonts"
-       Use only web fonts (specified here) to display characters. This gives
-       the most consistent behavior across systems. Although, the end user is
-       will be unable to install fonts locally to render any
-       missing characters (see the next setting).
-    class="fontFeatures unicodeFonts"
-       Use web fonts (specified here) to display characters, but also include
-       local fonts within the set of fonts for display. This may (will) cause
-       inconsistent results across systems, but it gives the end user some
-       power to install their own font to display missing characters.
+       Recommended setting to use these web fonts.
     class="unicodeMono"
-       Use monospaced fonts. Also provides local font fallback. Not recommended
-       for general use.
+       Use monospaced font. Not recommended for general use.
 
 
 
@@ -53,20 +45,20 @@ order, downloading them as needed.
 
 
 
-First, we use the serif font "Egenolff-Berner Garamond",
-version 0.016, by Georg Duffner ( http://www.georgduffner.at/ ).
-It's a free font, with old-style numbers, regular & italic styles, ligatures,
-lots of stylistic alternatives, etc.; altogether a great font.
+First, use Noto Sans webfonts where available.
 
-And we use Bigelow and Holmes's "Luxi Mono" https://ctan.org/tex-archive/fonts/LuxiMono/
+Use Bigelow and Holmes's "Luxi Mono" https://ctan.org/tex-archive/fonts/LuxiMono/
 for monospaced characters (dates and <PRE></PRE>).
 
 Next in priority are "GNU FreeFont" https://www.gnu.org/software/freefont/
-and "Code 2000," "Code 2001," and "Code 2002" (by James Kass)
+
+Then come the Code 2000 set of fonts: "Code 2000," "Code 2001," and "Code 2002" (by James Kass)
 https://web.archive.org/web/20101122142710/http://code2000.net/code2000_page.htm
 (original web site is longer available; see also http://www.fontspace.com/james-kass )
 which together cover a huge range of characters across
 many languages, modern and historical, and also look appealing.
+These font files have some bugs; opening them in FontForge and re-generating
+the fonts fixes these problems.
 
 The previous are highest priority to have the best chance of finding the
 desired character with a minimal of font downloads. Next we proceed to
@@ -79,17 +71,13 @@ Noto set of fonts https://www.google.com/get/noto/
 If the need arises, more specialty fonts (from Noto or elsewhere) could be
 added here, as well.
 
-Next, (optionally) try the default font names, which will check the fonts installed
-on the end-user's local system. This will allow the user the ability to
-find and install their own font if they need a glyph that's missing.
-
 Next in priority order we try "GNU Unifont" http://unifoundry.com/unifont.html
 which is a bitmap font converted to True Type format. As such, its
 appearance is not necessarily pretty, but provides the user with something
-that is, at the very least, intelligible. The three font sets used are
-BMP, SMP, and CSUR-PUA. These provide a huge coverage of Unicode glyphs.
+that is, at the very least, intelligible. The four font sets used are
+BMP, JP, SMP, and CSUR-PUA. These provide a huge coverage of Unicode glyphs.
 
-Finally, instead of displaying a rectangle for yet missing glyphs, use
+Finally, instead of displaying a rectangle ("tofu") for yet missing glyphs, use
 the Apple/Unicode "Last Resort" font http://www.unicode.org/policies/lastresortfont_eula.html
 which shows code point and block information, then SIL's
 "Unicode BMP Fallback" font http://scripts.sil.org/cms/scripts/page.php?item_id=UnicodeBMPFallbackFont
@@ -98,30 +86,33 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-/* MAIN FONT */
-@font-face {
-    font-family: eb-garamond;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.woff2') format('woff2'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.ttf') format('truetype'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Regular.otf') format('opentype');
-    /* omit some block with partial coverage; exclude pilcrows */
-    unicode-range: U+0020-00B5, U+00B7-204A, U+204C-218F, U+2460-27BF, U+2C60-FFFF;
-}
 
-@font-face {
-    font-family: eb-garamond;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.woff2') format('woff2'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.woff') format('woff'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.ttf') format('truetype'),
-        url('https://mosher.mine.nu/font/garamond/EBGaramond12-Italic.otf') format('opentype');
-    unicode-range: U+0020-FFFF;
-    font-style: italic;
-}
+/* All @import commands must go first */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:n,b,i,bi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+Symbols&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanstibetan.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansmyanmar.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanstaitham.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansnewtailue.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansbalinese.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansbatak.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanslepcha.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansolchiki.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansgeorgian.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanssundanese.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanssinhala.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansmandaic.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansbamum.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanscuneiform.css');
+
+
+
+
 
 
 
@@ -135,13 +126,17 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
+
+
+
 /* UNICODE FONTS for most glyphs */
 @font-face {
     font-family: freefont;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.woff') format('woff'),
-        url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSerif.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSans.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSans.woff') format('woff'),
+        url('https://mosher.mine.nu/font/freefont/freefont-20120503/FreeSans.ttf') format('truetype');
     unicode-range: U+00A0, U+0100-01FFFF;
 }
 
@@ -149,6 +144,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: code2000;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/code2000/code2000.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/code2000/code2000.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2000.ttf') format('truetype');
     /* Code2000 font has incorrect PUA glyphs assigned to U+E700 through U+F8CF */
@@ -159,6 +155,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: code2001;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/code2000/code2001.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/code2000/code2001.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2001.ttf') format('truetype');
 }
@@ -167,6 +164,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: code2002;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/code2000/code2002.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/code2000/code2002.woff') format('woff'),
         url('https://mosher.mine.nu/font/code2000/code2002.ttf') format('truetype');
 }
@@ -176,107 +174,25 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: quivira;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/quivira/quivira.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/quivira/quivira.woff') format('woff'),
-        url('https://mosher.mine.nu/font/quivira/quivira.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/quivira/quivira.otf') format('opentype');
 }
 
 
-@font-face {
-    font-family: tibetan;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansTibetan-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansTibetan-Regular.ttf') format('truetype');
-    unicode-range: U+0F00-0FFF;
-}
 
-@font-face {
-    font-family: burmese;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSerifMyanmar-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: taitham;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansTaiTham-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansTaiTham-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: newtailue;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansNewTaiLue-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansNewTaiLue-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: balinese;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansBalinese-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansBalinese-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: batak;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansBatak-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansBatak-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: lepcha;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansLepcha-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansLepcha-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: olchiki;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansOlChiki-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansOlChiki-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: georgian;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansGeorgian-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansGeorgian-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: sundanese;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansSundanese-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansSundanese-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: sinhala;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansSinhala-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansSinhala-Regular.ttf') format('truetype');
-}
 
-@font-face {
-    font-family: mandaic;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansMandaic-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansMandaic-Regular.ttf') format('truetype');
-}
+
+/* various other fonts (TODO check for Noto Sans replacements) */
 
 @font-face {
     font-family: scheherazade;
@@ -284,23 +200,6 @@ which shows code points for a few of the yet still missing BMP glyphs.
     src:
         url('https://mosher.mine.nu/font/Scheherazade-2.100/web/Scheherazade-Regular.woff') format('woff'),
         url('https://mosher.mine.nu/font/Scheherazade-2.100/Scheherazade-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: bamum;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansBamum-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansBamum-Regular.ttf') format('truetype');
-}
-
-/* ancient fonts (hieroglyphs, etc.) */
-@font-face {
-    font-family: cuneiform;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/noto/NotoSansCuneiform-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/noto/NotoSansCuneiform-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -354,35 +253,52 @@ which shows code points for a few of the yet still missing BMP glyphs.
     unicode-range: U+00A0, U+0700-074F;
 }
 
+
+
+
+
 /* LAST RESORT fonts (bitmaps and missing) */
 @font-face {
     font-family: unifont;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont-11.0.02.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont-12.1.03.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont-12.1.03.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont-12.1.03.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: unifont-jp;
+    font-display: swap;
+    src:
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_jp-12.1.03.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_jp-12.1.03.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_jp-12.1.03.ttf') format('truetype');
 }
 
 @font-face {
     font-family: unifont-smp;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont_upper-11.0.02.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_upper-12.1.03.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_upper-12.1.03.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_upper-12.1.03.ttf') format('truetype');
 }
 
 @font-face {
     font-family: unifont-pua;
     font-display: swap;
     src:
-        url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.woff') format('woff'),
-        url('https://mosher.mine.nu/font/unifont/unifont_csur-11.0.02.ttf') format('truetype');
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_csur-12.1.03.woff2') format('woff2'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_csur-12.1.03.woff') format('woff'),
+        url('https://mosher.mine.nu/font/unifont/12.1.03/unifont_csur-12.1.03.ttf') format('truetype');
 }
 
 @font-face {
     font-family: lastresort;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/lastresort/LastResort.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/lastresort/LastResort.woff') format('woff'),
         url('https://mosher.mine.nu/font/lastresort/LastResort.ttf') format('truetype');
 }
@@ -391,6 +307,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-family: silbmp;
     font-display: swap;
     src:
+        url('https://mosher.mine.nu/font/silbmp/UnicodeBMPFallback.woff2') format('woff2'),
         url('https://mosher.mine.nu/font/silbmp/UnicodeBMPFallback.woff') format('woff'),
         url('https://mosher.mine.nu/font/silbmp/UnicodeBMPFallback.ttf') format('truetype');
 }
@@ -400,28 +317,35 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-.unicodeFonts {
-    font-family:
-        eb-garamond,
-        tibetan, burmese, taitham, newtailue, balinese, batak, lepcha, olchiki,
-        symbola, aegean,
-        georgian, sundanese, sinhala, mandaic, scheherazade, bamum,
-        syriac, abydos, anatolian, tangut, cuneiform,
-        freefont, code2000, code2001, code2002, quivira,
-        serif, sans-serif, monospace, cursive, fantasy,
-        unifont, unifont-smp, unifont-pua,
-        lastresort, silbmp;
-}
-
 .unicodeWebFonts {
     font-family:
-        eb-garamond,
-        tibetan, burmese, taitham, newtailue, balinese, batak, lepcha, olchiki,
-        symbola, aegean,
-        georgian, sundanese, sinhala, mandaic, scheherazade, bamum,
-        syriac, abydos, anatolian, tangut, cuneiform,
+        'Noto Sans',
+        'Noto Sans TC',
+        'Noto Sans SC',
+        'Noto Sans JP',
+        'Noto Sans KR',
+        'Noto Sans HK',
+        'Noto Sans Symbols',
+        'Noto Sans Tibetan',
+        'Noto Sans Myanmar',
+        'Noto Sans Tia Tham',
+        'Noto Sans New Tai Lue',
+        'Noto Sans Balinese',
+        'Noto Sans Batak',
+        'Noto Sans Lepcha',
+        'Noto Sans Ol Chiki',
+        'Noto Sans Georgian',
+        'Noto Sans Sundanese',
+        'Noto Sans Sinahala',
+        'Noto Sans Mandaic',
+        'Noto Sans Bamum',
+        'Noto Sans Cuneiform',
+
+        symbola, aegean, scheherazade,
+        syriac, abydos, anatolian, tangut,
+
         freefont, code2000, code2001, code2002, quivira,
-        unifont, unifont-smp, unifont-pua,
+        unifont, unifont-jp, unifont-smp, unifont-pua,
         lastresort, silbmp;
 }
 
@@ -438,9 +362,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 .unicodeMono {
-    font-family:
-        luxi, monospace,
-        sans-serif, unifont, unifont-smp;
+    font-family: luxi, monospace, unifont, unifont-smp;
     font-weight: normal;
     font-style: normal;
     font-kerning: none;
