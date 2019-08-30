@@ -23,7 +23,7 @@ The goal is to be able to meaningfully display as many characters as
 possible, in order to cover any text that may ever need to be
 displayed, from around the world, and back into history. This is also
 the primary goal of Google's Noto Sans font project, so we make heavy
-use of that, supplimenting it where necessary.
+use of that, supplementing it where necessary.
 
 
 
@@ -31,10 +31,8 @@ use of that, supplimenting it where necessary.
 
 Add classes to an HTML element in order to utilize these font
 settings within that element:
+
     class="fontFeatures unicodeWebFonts"
-       Recommended setting to use these web fonts.
-    class="unicodeMono"
-       Use monospaced font. Not recommended for general use.
 
 
 
@@ -46,9 +44,6 @@ order, downloading them as needed.
 
 
 First, use Noto Sans webfonts where available.
-
-Use Bigelow and Holmes's "Luxi Mono" https://ctan.org/tex-archive/fonts/LuxiMono/
-for monospaced characters (dates and <PRE></PRE>).
 
 Next in priority are "GNU FreeFont" https://www.gnu.org/software/freefont/
 
@@ -87,7 +82,10 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
+
 /* All @import commands must go first */
+
+/* Google Noto Sans fonts released as web fonts */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:n,b,i,bi&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+Symbols&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
@@ -95,6 +93,8 @@ which shows code points for a few of the yet still missing BMP glyphs.
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap');
+
+/* Google Noto Sans fonts in beta test */
 @import url('https://fonts.googleapis.com/earlyaccess/notosanstibetan.css');
 @import url('https://fonts.googleapis.com/earlyaccess/notosansmyanmar.css');
 @import url('https://fonts.googleapis.com/earlyaccess/notosanstaitham.css');
@@ -114,22 +114,8 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-
-
-/* MONOSPACED FONT for dates and PRE-formatted text */
-@font-face {
-    font-family: luxi;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/luxi/Luxi.woff') format('woff');
-}
-
-
-
-
-
-
 /* UNICODE FONTS for most glyphs */
+
 @font-face {
     font-family: freefont;
     font-display: swap;
@@ -178,15 +164,6 @@ which shows code points for a few of the yet still missing BMP glyphs.
         url('https://mosher.mine.nu/font/quivira/quivira.woff') format('woff'),
         url('https://mosher.mine.nu/font/quivira/quivira.otf') format('opentype');
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -258,6 +235,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 /* LAST RESORT fonts (bitmaps and missing) */
+
 @font-face {
     font-family: unifont;
     font-display: swap;
@@ -316,7 +294,6 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-
 .unicodeWebFonts {
     font-family:
         'Noto Sans',
@@ -341,9 +318,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
         'Noto Sans Bamum',
         'Noto Sans Cuneiform',
 
-        symbola, aegean, scheherazade,
-        syriac, abydos, anatolian, tangut,
-
+        symbola, aegean, scheherazade, syriac, abydos, anatolian, tangut,
         freefont, code2000, code2001, code2002, quivira,
         unifont, unifont-jp, unifont-smp, unifont-pua,
         lastresort, silbmp;
@@ -357,14 +332,4 @@ which shows code points for a few of the yet still missing BMP glyphs.
     font-kerning: normal;
     font-feature-settings: "kern", "liga", "clig", "dlig";
     text-rendering: optimizeLegibility;
-}
-
-
-
-.unicodeMono {
-    font-family: luxi, monospace, unifont, unifont-smp;
-    font-weight: normal;
-    font-style: normal;
-    font-kerning: none;
-    font-feature-settings: "tnum";
 }
