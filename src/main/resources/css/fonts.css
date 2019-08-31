@@ -109,6 +109,13 @@ which shows code points for a few of the yet still missing BMP glyphs.
 @import url('https://fonts.googleapis.com/earlyaccess/notosansmandaic.css');
 @import url('https://fonts.googleapis.com/earlyaccess/notosansbamum.css');
 @import url('https://fonts.googleapis.com/earlyaccess/notosanscuneiform.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskufiarabic.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notonastaliqurdu.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notonaskharabic.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanssyriacestrangela.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanssyriaceastern.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosanssyriacwestern.css');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansegyptianhieroglyphs.css');
 
 
 
@@ -169,48 +176,7 @@ which shows code points for a few of the yet still missing BMP glyphs.
 
 
 
-/* various other fonts (TODO check for Noto Sans replacements) */
-
-@font-face {
-    font-family: scheherazade;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/Scheherazade-2.100/web/Scheherazade-Regular.woff') format('woff'),
-        url('https://mosher.mine.nu/font/Scheherazade-2.100/Scheherazade-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: abydos;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/abydos/AbydosR_hint.woff2') format('woff2'),
-        url('https://mosher.mine.nu/font/abydos/AbydosR_hint.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: aegean;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/aegean/Aegean_hint.woff') format('woff'),
-        url('https://mosher.mine.nu/font/aegean/Aegean_hint.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: symbola;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/symbola/Symbola_hint.woff') format('woff'),
-        url('https://mosher.mine.nu/font/symbola/Symbola_hint.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: anatolian;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.woff') format('woff'),
-        url('https://mosher.mine.nu/font/anatolian/Anatolian_Hinted.ttf') format('truetype');
-    unicode-range: U+00A0, U+14400-1467F;
-}
+/* OTHER supplemental fonts */
 
 @font-face {
     font-family: tangut;
@@ -219,15 +185,6 @@ which shows code points for a few of the yet still missing BMP glyphs.
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.woff') format('woff'),
         url('https://mosher.mine.nu/font/tangut/TangutYinchuan.ttf') format('truetype');
     unicode-range: U+00A0, U+17000-18AFF;
-}
-
-@font-face {
-    font-family: syriac;
-    font-display: swap;
-    src:
-        url('https://mosher.mine.nu/font/meltho/EstrangeloEdessa.woff') format('woff'),
-        url('https://mosher.mine.nu/font/meltho/EstrangeloEdessa.ttf') format('truetype');
-    unicode-range: U+00A0, U+0700-074F;
 }
 
 
@@ -317,8 +274,15 @@ which shows code points for a few of the yet still missing BMP glyphs.
         'Noto Sans Mandaic',
         'Noto Sans Bamum',
         'Noto Sans Cuneiform',
+        'Noto Sans Kufi Arabic',
+        'Noto Nastaliq Urdu',
+        'Noto Naskh Arabic',
+        'Noto Sans Syriac Estrangela',
+        'Noto Sans Syriac Eastern',
+        'Noto Sans Syriac Western',
+        'Noto Sans Egyptian Hieroglyphs',
 
-        symbola, aegean, scheherazade, syriac, abydos, anatolian, tangut,
+        tangut,
         freefont, code2000, code2001, code2002, quivira,
         unifont, unifont-jp, unifont-smp, unifont-pua,
         lastresort, silbmp;
