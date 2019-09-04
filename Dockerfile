@@ -155,24 +155,25 @@ RUN ls *.ttf | xargs -n 1 sfnt2woff
 RUN ls *.ttf | xargs -n 1 woff2_compress
 
 
-
 RUN mkdir ~/css
 COPY font-features.css ~/css/
 COPY *.sh /usr/local/bin/
 
 WORKDIR /usr/share/fonts/truetype/noto
-RUN font-face.sh
+RUN font-face.sh ../noto
 
 WORKDIR /srv
-RUN font-face.sh
+RUN font-face.sh ../fallback
 
 RUN echo ".unicodeWebFonts { font-family:" >~/css/unifonts.css
-RUN fc-scan --format="%{family}\n" /usr/share/fonts/truetype/noto/NotoSans*.ttf | grep -v Display | sort -u | cut -d, -f1 | sed "s/\(.*\)/'\1',/" >>~/css/unifonts.css
+RUN echo "'Noto Sans'," >>~/css/unifonts.css
+RUN fc-scan --format="%{family}\n" /usr/share/fonts/truetype/noto/*.ttf | grep -v '^Noto Sans$' | grep -v Mono | grep -v Serif | grep -v Display | sort -u | cut -d, -f1 | sed "s/\(.*\)/'\1',/" >>~/css/unifonts.css
 RUN echo "'FreeSans', 'Code2000', 'Code2001', 'Code2002'," >>~/css/unifonts.css
 RUN echo "'Unifont', 'Unifont-JP', 'Unifont Upper', 'Unifont CSUR'," >>~/css/unifonts.css
 RUN echo "'LastResort', 'Unicode BMP Fallback SIL'; }" >>~/css/unifonts.css
 
 COPY *.css /root/css/
+RUN chmod a+rx /root
 
 WORKDIR /usr/share/nginx/html
 RUN rm index.html

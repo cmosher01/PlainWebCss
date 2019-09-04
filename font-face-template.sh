@@ -1,14 +1,17 @@
 #!/bin/sh
 
-family=`fc-scan --format="%{family}\n" $1.ttf | cut -d, -f1`
+prefix=$1
+font_file=$2
 
-case $1 in
+family=`fc-scan --format="%{family}\n" $font_file.ttf | cut -d, -f1`
+
+case $font_file in
     *Bold*)
         weight=700 ;;
     *)
         weight=400 ;;
 esac
-case $1 in
+case $font_file in
     *Italic*|*Oblique*)
         style=italic ;;
     *)
@@ -28,8 +31,8 @@ cat <<EOF
     font-display: swap;
     $extra
     src:
-        url('$1.woff2') format('woff2'),
-        url('$1.woff') format('woff'),
-        url('$1.ttf') format('truetype');
+        url('$prefix/$font_file.woff2') format('woff2'),
+        url('$prefix/$font_file.woff') format('woff'),
+        url('$prefix/$font_file.ttf') format('truetype');
 }
 EOF
