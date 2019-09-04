@@ -1,0 +1,4 @@
+#!/usr/bin/fontforge
+Open($2)
+Open($1)
+CompareFonts($2,"-",0x799)
