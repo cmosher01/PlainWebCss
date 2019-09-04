@@ -176,7 +176,8 @@ COPY *.css /root/css/
 RUN chmod a+rx /root
 
 WORKDIR /usr/share/nginx/html
-RUN rm index.html
+COPY index.html ./
+COPY test ./test
 RUN ln -s /usr/share/fonts/truetype/noto
 RUN ln -s /srv fallback
 RUN ln -s ~/css
