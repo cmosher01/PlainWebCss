@@ -1,8 +1,10 @@
 FROM nginx
 USER root
 RUN apt-get update && apt-get install -y unzip wget fontforge woff-tools woff2
-WORKDIR /srv
 
+COPY *.sh /usr/local/bin/
+
+WORKDIR /srv
 
 
 
@@ -19,58 +21,27 @@ WORKDIR /srv
 # Code 2001: 0.919 (2008-04-06)
 # Code 2002: ?.??? (2005-04-04)
 #
-#
-#
-# Archive:  CODE2000.ZIP
-#  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
-# --------  ------  ------- ---- ---------- ----- --------  ----
-#     4549  Defl:N     2080  54% 2008-06-15 16:49 2803940b  CODE2000.HTM
-#  8377000  Defl:N  3858297  54% 2008-06-13 00:45 750abea1  CODE2000.TTF
-# --------          -------  ---                            -------
-#  8381549          3860377  54%                            2 files
-#
-#
-#
-# Archive:  CODE2001.ZIP
-#  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
-# --------  ------  ------- ---- ---------- ----- --------  ----
-#   497144  Defl:N   212157  57% 2008-04-06 18:54 161d8021  CODE2001.TTF
-# --------          -------  ---                            -------
-#   497144           212157  57%                            1 file
-#
-#
-#
-# Archive:  CODE2002.ZIP
-#  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
-# --------  ------  ------- ---- ---------- ----- --------  ----
-#  4293820  Defl:N  2369681  45% 2005-04-04 22:25 cfe88f00  CODE2002.TTF
-# --------          -------  ---                            -------
-#  4293820          2369681  45%                            1 file
-RUN wget -nv https://web.archive.org/web/20101122142710/http://code2000.net/CODE2000.ZIP
-RUN wget -nv https://web.archive.org/web/20101122142330/http://code2000.net/CODE2001.ZIP
-RUN wget -nv https://web.archive.org/web/20110108105420/http://code2000.net/CODE2002.ZIP
-
-COPY convert.fontforge.pe ./
-COPY compare.fontforge.pe ./
-
+ENV CODE_2000_ARCHIVE 20101122142710
+RUN wget -nv https://web.archive.org/web/$CODE_2000_ARCHIVE/http://code2000.net/CODE2000.ZIP
 RUN unzip CODE2000.ZIP
 RUN mv -nv CODE2000.TTF code2000.original
-RUN ./convert.fontforge.pe code2000.original
-RUN ./compare.fontforge.pe code2000.original code2000.ttf >code2000.diff 2>&1
+RUN convert.fontforge.sh code2000.original
 RUN sfnt2woff code2000.ttf
 RUN woff2_compress code2000.ttf
 
+ENV CODE_2001_ARCHIVE 20101122142330
+RUN wget -nv https://web.archive.org/web/$CODE_2001_ARCHIVE/http://code2000.net/CODE2001.ZIP
 RUN unzip CODE2001.ZIP
 RUN mv -nv CODE2001.TTF code2001.original
-RUN ./convert.fontforge.pe code2001.original
-RUN ./compare.fontforge.pe code2001.original code2001.ttf >code2001.diff 2>&1
+RUN convert.fontforge.sh code2001.original
 RUN sfnt2woff code2001.ttf
 RUN woff2_compress code2001.ttf
 
+ENV CODE_2002_ARCHIVE 20110108105420
+RUN wget -nv https://web.archive.org/web/$CODE_2002_ARCHIVE/http://code2000.net/CODE2002.ZIP
 RUN unzip CODE2002.ZIP
 RUN mv -nv CODE2002.TTF code2002.original
-RUN ./convert.fontforge.pe code2002.original
-RUN ./compare.fontforge.pe code2002.original code2002.ttf >code2002.diff 2>&1
+RUN convert.fontforge.sh code2002.original
 RUN sfnt2woff code2002.ttf
 RUN woff2_compress code2002.ttf
 
@@ -146,38 +117,60 @@ RUN woff2_compress unifont_csur.ttf
 
 
 RUN apt-get install -y fonts-noto-core fonts-noto-color-emoji
-# TODO fonts-noto-cjk
 
-
+RUN mkdir ~/css
 
 WORKDIR /usr/share/fonts/truetype/noto
 RUN ls *.ttf | xargs -n 1 sfnt2woff
 RUN ls *.ttf | xargs -n 1 woff2_compress
 
 
-RUN mkdir ~/css
-COPY font-features.css ~/css/
-COPY *.sh /usr/local/bin/
-
 WORKDIR /usr/share/fonts/truetype/noto
 RUN font-face.sh ../noto
+
+RUN mkdir /srv/cjk
+WORKDIR /srv/cjk
+# Noto CJK region-specific subset fonts
+RUN wget -nv https://noto-website-2.storage.googleapis.com/pkgs/NotoSansJP.zip
+RUN unzip NotoSansJP.zip NotoSansJP-Regular.otf
+RUN wget -nv https://noto-website-2.storage.googleapis.com/pkgs/NotoSansKR.zip
+RUN unzip NotoSansKR.zip NotoSansKR-Regular.otf
+RUN wget -nv https://noto-website-2.storage.googleapis.com/pkgs/NotoSansSC.zip
+RUN unzip NotoSansSC.zip NotoSansSC-Regular.otf
+RUN wget -nv https://noto-website-2.storage.googleapis.com/pkgs/NotoSansTC.zip
+RUN unzip NotoSansTC.zip NotoSansTC-Regular.otf
+RUN ls *.otf | xargs -n 1 sfnt2woff
+RUN ls *.otf | xargs -n 1 woff2_compress
+
+
 
 WORKDIR /srv
 RUN font-face.sh ../fallback
 
+
+
 RUN echo ".unicodeWebFonts { font-family:" >~/css/unifonts.css
 RUN echo "'Noto Sans'," >>~/css/unifonts.css
 RUN fc-scan --format="%{family}\n" /usr/share/fonts/truetype/noto/*.ttf | grep -v '^Noto Sans$' | grep -v Mono | grep -v Serif | grep -v Display | sort -u | cut -d, -f1 | sed "s/\(.*\)/'\1',/" >>~/css/unifonts.css
+RUN echo "'Noto Sans TC'," >>~/css/unifonts.css
+RUN echo "'Noto Sans SC'," >>~/css/unifonts.css
+RUN echo "'Noto Sans JP'," >>~/css/unifonts.css
+RUN echo "'Noto Sans KR'," >>~/css/unifonts.css
 RUN echo "'FreeSans', 'Code2000', 'Code2001', 'Code2002'," >>~/css/unifonts.css
 RUN echo "'Unifont', 'Unifont-JP', 'Unifont Upper', 'Unifont CSUR'," >>~/css/unifonts.css
 RUN echo "'LastResort', 'Unicode BMP Fallback SIL'; }" >>~/css/unifonts.css
 
+
+
 COPY *.css /root/css/
 RUN chmod a+rx /root
+
+
 
 WORKDIR /usr/share/nginx/html
 COPY index.html ./
 COPY test ./test
 RUN ln -s /usr/share/fonts/truetype/noto
+RUN ln -s /srv/cjk
 RUN ln -s /srv fallback
 RUN ln -s ~/css

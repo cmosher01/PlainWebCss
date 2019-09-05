@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('../cjk/NotoSansJP-Regular.woff2') format('woff2'),
+        url('../cjk/NotoSansJP-Regular.woff') format('woff'),
+        url('../cjk/NotoSansJP-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('../cjk/NotoSansKR-Regular.woff2') format('woff2'),
+        url('../cjk/NotoSansKR-Regular.woff') format('woff'),
+        url('../cjk/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('../cjk/NotoSansSC-Regular.woff2') format('woff2'),
+        url('../cjk/NotoSansSC-Regular.woff') format('woff'),
+        url('../cjk/NotoSansSC-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('../cjk/NotoSansTC-Regular.woff2') format('woff2'),
+        url('../cjk/NotoSansTC-Regular.woff') format('woff'),
+        url('../cjk/NotoSansTC-Regular.otf') format('opentype');
+}
