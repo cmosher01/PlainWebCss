@@ -1,4 +1,5 @@
-@import url("https://cdn.jsdelivr.net/gh/cmosher01/PlainWebCss@master/src/main/resources/css/reset.css");
+@import url("../css/reset.css");
+@import url("../css/solarized.css");
 @import url("../css/fonts.css");
 
 a:hover {

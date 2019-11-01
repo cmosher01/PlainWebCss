@@ -1,3 +1,87 @@
+#
+#   Universal Web-Font Server
+#
+#   Copyright © 2018–2019, Christopher Alan Mosher, Shelton, Connecticut, USA, <cmosher01@gmail.com>.
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+LABEL \
+    org.opencontainers.image.authors="Christopher Alan Mosher <cmosher01@gmail.com>" \
+    org.opencontainers.image.description="HTTP server of unicode webfonts." \
+    org.opencontainers.image.licenses="GPL-3.0-or-later" \
+    org.opencontainers.image.source="https://github.com/cmosher01/PlainWebCss" \
+    org.opencontainers.image.title="Universal Web-Font Server" \
+    org.opencontainers.image.vendor="Christopher Alan Mosher, Shelton, Connecticut, USA"
+
+
+
+
+
+# final web site layout:
+#
+#/usr/share/nginx/html
+#|-- index.html
+#|-- css -> /root/css
+#|   |-- reset.css
+#|   |-- solarized.css
+#|   |-- fonts.css
+#|   |-- cjk.font-faces.css
+#|   |-- font-faces.css
+#|   |-- font-features.css
+#|   +-- unifonts.css
+#|-- noto -> /usr/share/fonts/truetype/noto
+#|   |-- NotoColorEmoji.woff2
+#|   |-- NotoKufiArabic-Bold.woff2
+#|   |-- NotoKufiArabic-Regular.woff2
+#|   |-- NotoMusic-Regular.woff2
+#|   |--    ...   [many more Noto fonts here]
+#|   +-- NotoSerifTibetan-Regular.woff2
+#|-- cjk -> /srv/cjk
+#|   |-- NotoSansJP-Regular.woff2
+#|   |-- NotoSansKR-Regular.woff2
+#|   |-- NotoSansSC-Regular.woff2
+#|   +-- NotoSansTC-Regular.woff2
+#|-- fallback -> /srv
+#|   |-- FreeSans.woff2
+#|   |-- FreeSansBold.woff2
+#|   |-- FreeSansBoldOblique.woff2
+#|   |-- FreeSansOblique.woff2
+#|   |-- LastResort.woff2
+#|   |-- UnicodeBMPFallback.woff2
+#|   |-- code2000.woff2
+#|   |-- code2001.woff2
+#|   |-- code2002.woff2
+#|   |-- unifont.woff2
+#|   |-- unifont_csur.woff2
+#|   |-- unifont_jp.woff2
+#|   +-- unifont_upper.woff2
+#+-- test
+#    |-- greek_test.html
+#    |-- linear_a.html
+#    |-- test.css
+#    |-- test.html
+#    |-- utf8sampler.html
+#    |-- utf8sampler2.html
+#    +-- utf8sampler3.html
+#
+# Each font is provided in three formats: ttf, woff, and woff2.
+# Except, a handfull of fonts are otf instead of ttf.
+
+
+
+
+
 FROM nginx
 USER root
 RUN apt-get update && apt-get install -y unzip wget fontforge woff-tools woff2
@@ -162,7 +246,8 @@ RUN echo "'LastResort', 'Unicode BMP Fallback SIL'; }" >>~/css/unifonts.css
 
 
 
-COPY *.css /root/css/
+COPY ./*.css /root/css/
+COPY ./src/main/resources/css/*.css /root/css/
 RUN chmod a+rx /root
 
 
