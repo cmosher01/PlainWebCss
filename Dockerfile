@@ -1,3 +1,5 @@
+FROM nginx
+
 #
 #   Universal Web-Font Server
 #
@@ -82,8 +84,8 @@ LABEL \
 
 
 
-FROM nginx
 USER root
+
 RUN apt-get update && apt-get install -y unzip wget fontforge woff-tools woff2
 
 COPY *.sh /usr/local/bin/
