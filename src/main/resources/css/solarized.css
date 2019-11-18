@@ -27,28 +27,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+/*
+RGB values recalculated from L*a*b* values.
+See https://github.com/cmosher01/Solarized-Study
+*/
 :root {
-    --sol-base03: #002b36;
-    --sol-base02: #073642;
-    --sol-base01: #586e75;
-    --sol-base00: #657b83;
-
-    --sol-base0: #839496;
-    --sol-base1: #93a1a1;
-    --sol-base2: #eee8d5;
-    --sol-base3: #fdf6e3;
-
-
-
-    --sol-yellow: #b58900;
-    --sol-orange: #cb4b16;
-    --sol-red: #dc322f;
-    --sol-magenta: #d33682;
-
-    --sol-violet: #6c71c4;
-    --sol-blue: #268bd2;
-    --sol-cyan: #2aa198;
-    --sol-green: #859900;
+    --sol-base03:  #002b36;
+    --sol-base02:  #003642;
+    --sol-base01:  #576f76;
+    --sol-base00:  #637b83;
+    --sol-base0:   #839596;
+    --sol-base1:   #93a1a2;
+    --sol-base2:   #f1e8d6;
+    --sol-base3:   #fff7e4;
+    --sol-yellow:  #bc8801;
+    --sol-orange:  #d04c15;
+    --sol-red:     #e1332e;
+    --sol-magenta: #d43982;
+    --sol-violet:  #5c73c4;
+    --sol-blue:    #008dd2;
+    --sol-cyan:    #20a299;
+    --sol-green:   #8d9900;
 }
 
 .solarizedLight {
