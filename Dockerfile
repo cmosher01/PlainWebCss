@@ -86,7 +86,10 @@ LABEL \
 
 USER root
 
-RUN apt-get update && apt-get install -y unzip wget fontforge woff-tools woff2
+RUN \
+    apt-get update && \
+    apt-get install -y unzip wget fontforge woff-tools woff2 && \
+    apt-get clean
 
 COPY *.sh /usr/local/bin/
 
@@ -97,9 +100,14 @@ WORKDIR /srv
 
 
 
-# Code 2000 fonts, by James Kaas
+# Code 2000 fonts, by James Kass
+#
 # As of 2019, these fonts have no official current web site, so
 # get the latest archived versions from the Internet Archive.
+# Original site http://code2000.net
+# not currently available. View it on Internet Archive:
+# http://web.archive.org/web/20110108105420/http://code2000.net/
+#
 # Version numbers as listed on the web site, and dates from the
 # files in the ZIP archives.
 #
@@ -202,7 +210,7 @@ RUN woff2_compress unifont_csur.ttf
 
 
 
-RUN apt-get install -y fonts-noto-core fonts-noto-color-emoji
+RUN apt-get install -y fonts-noto-core fonts-noto-color-emoji && apt-get clean
 
 RUN mkdir ~/css
 
