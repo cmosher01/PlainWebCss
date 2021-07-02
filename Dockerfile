@@ -145,9 +145,8 @@ RUN woff2_compress code2002.ttf
 
 
 
-# Unicode.org Last Resort font http://unicode.org/policies/lastresortfont_eula.html
-RUN wget -nv --method=POST https://unicode.org/cgi-bin/LastResortDownload.zip
-RUN unzip LastResortDownload.zip
+# Unicode.org Last Resort font: https://github.com/unicode-org/last-resort-font
+RUN wget -nv https://github.com/unicode-org/last-resort-font/releases/download/13.001/LastResort-Regular.ttf -O LastResort.ttf
 RUN sfnt2woff LastResort.ttf
 RUN woff2_compress LastResort.ttf
 
