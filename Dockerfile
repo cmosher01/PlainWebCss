@@ -104,6 +104,7 @@ WORKDIR /srv
 #
 # As of 2019, these fonts have no official current web site, so
 # get the latest archived versions from the Internet Archive.
+#
 # Original site http://code2000.net
 # not currently available. View it on Internet Archive:
 # http://web.archive.org/web/20110108105420/http://code2000.net/
@@ -255,8 +256,7 @@ RUN echo "'LastResort', 'Unicode BMP Fallback SIL'; }" >>~/css/unifonts.css
 
 
 
-COPY ./*.css /root/css/
-COPY ./src/main/resources/css/*.css /root/css/
+COPY *.css /root/css/
 RUN chmod a+rx /root
 
 

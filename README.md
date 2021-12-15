@@ -17,8 +17,8 @@ You can view an [example server](https://mosher.mine.nu/uniwebfonts/).
 
 There are three main stylesheets in the system:
 
-* [reset.css](src/main/resources/css/reset.css) normalizes HTML5 elements across browsers
-* [solarized.css](src/main/resources/css/solarized.css) Solarized color scheme
+* [reset.css](reset.css) normalizes HTML5 elements across browsers
+* [solarized.css](solarized.css) Solarized color scheme
 * [fonts.css](fonts.css) unicode webfonts (requires Docker image web server)
 
 These can be used separately. See [test.html](test/test.html) for a small example.
@@ -31,31 +31,25 @@ docker run -d -p 8080:80 cmosher01/universal-web-fonts
 
 Then browse to http://localhost:8080/ to test. View sources for examples of use.
 
+---
+`test.html`
 ```html
 <!doctype html>
 <html class="unicodeWebFonts fontFeatures solarizedLight">
-<head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <link rel="stylesheet" href="test.css">
-</head>
-<body>
-    <p>Test</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+        <link rel="stylesheet" href="test.css">
+    </head>
+    <body>
+        <p>Test</p>
+    </body>
 </html>
 ```
-
+---
+`test.css`
 ```css
-@import url("../css/reset.css");
-@import url("../css/solarized.css");
-@import url("../css/fonts.css");
-
-a:hover {
-    background-color: var(--sol-base2);
-    color: var(--sol-orange);
-}
-
-html {
-    margin: 3rem;
-}
+@import url("reset.css");
+@import url("solarized.css");
+@import url("fonts.css");
 ```

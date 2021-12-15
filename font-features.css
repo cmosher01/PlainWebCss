@@ -1,7 +1,3 @@
 .fontFeatures {
-    font-weight: normal;
-    font-style: normal;
-    font-kerning: normal;
-    font-feature-settings: "kern", "liga", "clig", "dlig";
     text-rendering: optimizeLegibility;
 }
