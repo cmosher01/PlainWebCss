@@ -26,7 +26,7 @@ These can be used separately. See [test.html](test/test.html) for a small exampl
 ### docker
 
 ```shell script
-docker run -d -p 8080:80 cmosher01/universal-web-fonts
+docker run -d -p 8080:80 ghcr.io/cmosher01/plainwebcss
 ```
 
 Then browse to http://localhost:8080/ to test. View sources for examples of use.
