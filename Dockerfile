@@ -101,39 +101,24 @@ WORKDIR /srv
 
 
 # Code 2000 fonts, by James Kass
-#
-# As of 2019, these fonts have no official current web site, so
-# get the latest archived versions from the Internet Archive.
-#
-# Original site http://code2000.net
-# not currently available. View it on Internet Archive:
-# http://web.archive.org/web/20110108105420/http://code2000.net/
-#
-# Version numbers as listed on the web site, and dates from the
-# files in the ZIP archives.
-#
-# Code 2000: 1.171 (2008-06-13)
-# Code 2001: 0.919 (2008-04-06)
-# Code 2002: ?.??? (2005-04-04)
-#
-ENV CODE_2000_ARCHIVE 20101122142710
-RUN wget -nv https://web.archive.org/web/$CODE_2000_ARCHIVE/http://code2000.net/CODE2000.ZIP
+RUN wget -nv http://www.code2001.com/CODE2000.ZIP
+RUN unzip -l CODE2000.ZIP
 RUN unzip CODE2000.ZIP
 RUN mv -nv CODE2000.TTF code2000.original
 RUN convert.fontforge.sh code2000.original
 RUN sfnt2woff code2000.ttf
 RUN woff2_compress code2000.ttf
 
-ENV CODE_2001_ARCHIVE 20101122142330
-RUN wget -nv https://web.archive.org/web/$CODE_2001_ARCHIVE/http://code2000.net/CODE2001.ZIP
+RUN wget -nv http://www.code2001.com/CODE2001.ZIP
+RUN unzip -l CODE2001.ZIP
 RUN unzip CODE2001.ZIP
 RUN mv -nv CODE2001.TTF code2001.original
 RUN convert.fontforge.sh code2001.original
 RUN sfnt2woff code2001.ttf
 RUN woff2_compress code2001.ttf
 
-ENV CODE_2002_ARCHIVE 20110108105420
-RUN wget -nv https://web.archive.org/web/$CODE_2002_ARCHIVE/http://code2000.net/CODE2002.ZIP
+RUN wget -nv http://www.code2001.com/CODE2002.ZIP
+RUN unzip -l CODE2002.ZIP
 RUN unzip CODE2002.ZIP
 RUN mv -nv CODE2002.TTF code2002.original
 RUN convert.fontforge.sh code2002.original
