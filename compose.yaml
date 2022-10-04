@@ -1,0 +1,27 @@
+---
+version: "3.8"
+
+volumes:
+  "firefox_config":
+
+services:
+  "fonts":
+    build: "./"
+
+  "firefox":
+    build: "./firefox"
+    shm_size: "2g"
+    ports:
+      - published: 5900
+        target: 5900
+    volumes:
+      - type: "volume"
+        source: "firefox_config"
+        target: "/config"
+        read_only: false
+    environment:
+      "DISPLAY_WIDTH": 2048
+      "DISPLAY_HEIGHT": 1536
+
+# vinagre localhost:5900
+# browse to http://fonts
