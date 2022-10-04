@@ -43,7 +43,6 @@ LABEL \
 #|   |-- font-features.css
 #|   +-- unifonts.css
 #|-- noto -> /usr/share/fonts/truetype/noto
-#|   |-- NotoColorEmoji.woff2
 #|   |-- NotoKufiArabic-Bold.woff2
 #|   |-- NotoKufiArabic-Regular.woff2
 #|   |-- NotoMusic-Regular.woff2
@@ -104,24 +103,21 @@ WORKDIR /srv
 RUN wget -nv http://www.code2001.com/CODE2000.ZIP
 RUN unzip -l CODE2000.ZIP
 RUN unzip CODE2000.ZIP
-RUN mv -nv CODE2000.TTF code2000.original
-RUN convert.fontforge.sh code2000.original
+RUN mv -nv CODE2000.TTF code2000.ttf
 RUN sfnt2woff code2000.ttf
 RUN woff2_compress code2000.ttf
 
 RUN wget -nv http://www.code2001.com/CODE2001.ZIP
 RUN unzip -l CODE2001.ZIP
 RUN unzip CODE2001.ZIP
-RUN mv -nv CODE2001.TTF code2001.original
-RUN convert.fontforge.sh code2001.original
+RUN mv -nv CODE2001.TTF code2001.ttf
 RUN sfnt2woff code2001.ttf
 RUN woff2_compress code2001.ttf
 
 RUN wget -nv http://www.code2001.com/CODE2002.ZIP
 RUN unzip -l CODE2002.ZIP
 RUN unzip CODE2002.ZIP
-RUN mv -nv CODE2002.TTF code2002.original
-RUN convert.fontforge.sh code2002.original
+RUN mv -nv CODE2002.TTF code2002.ttf
 RUN sfnt2woff code2002.ttf
 RUN woff2_compress code2002.ttf
 
@@ -195,7 +191,7 @@ RUN woff2_compress unifont_csur.ttf
 
 
 
-RUN apt-get install -y fonts-noto-core fonts-noto-color-emoji && apt-get clean
+RUN apt-get install -y fonts-noto-core && apt-get clean
 
 RUN mkdir ~/css
 
