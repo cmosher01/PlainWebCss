@@ -121,7 +121,12 @@ RUN mv -nv CODE2002.TTF code2002.ttf
 RUN sfnt2woff code2002.ttf
 RUN woff2_compress code2002.ttf
 
-
+RUN wget -nv http://www.code2001.com/CODE20X3.ZIP
+RUN unzip -l CODE20X3.ZIP
+RUN unzip CODE20X3.ZIP
+RUN mv -nv CODE20X3.TTF code20x3.ttf
+RUN sfnt2woff code20x3.ttf
+RUN woff2_compress code20x3.ttf
 
 
 
@@ -231,7 +236,7 @@ RUN echo "'Noto Sans TC'," >>~/css/unifonts.css
 RUN echo "'Noto Sans SC'," >>~/css/unifonts.css
 RUN echo "'Noto Sans JP'," >>~/css/unifonts.css
 RUN echo "'Noto Sans KR'," >>~/css/unifonts.css
-RUN echo "'FreeSans', 'Code2000', 'Code2001', 'Code2002'," >>~/css/unifonts.css
+RUN echo "'FreeSans', 'Code2000', 'Code2001', 'Code2002', 'Code20x3'," >>~/css/unifonts.css
 RUN echo "'Unifont', 'Unifont-JP', 'Unifont Upper', 'Unifont CSUR'," >>~/css/unifonts.css
 RUN echo "'LastResort', 'Unicode BMP Fallback SIL'; }" >>~/css/unifonts.css
 
