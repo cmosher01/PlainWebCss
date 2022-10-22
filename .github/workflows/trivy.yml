@@ -1,9 +1,11 @@
 ---
 on:
   push:
-    branches: [ "latest" ]
+    branches:
+      - "latest"
   pull_request:
-    branches: [ "latest" ]
+    branches:
+      - "latest"
   schedule:
     - cron: "40 2 * * 3"
 
@@ -25,10 +27,8 @@ jobs:
       - uses: "aquasecurity/trivy-action@0.7.1"
         with:
           image-ref: "docker.io/my-organization/my-app:${{ github.sha }}"
-          format: "template"
-          template: "@/contrib/sarif.tpl"
+          format: "sarif"
           output: "trivy-results.sarif"
-          severity: "CRITICAL,HIGH"
 
       - uses: "github/codeql-action/upload-sarif@v2"
         with:
